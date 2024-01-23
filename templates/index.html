@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Facial Landmarks Detection</title>
+    <style>
+        #video-container {
+            text-align: center;
+        }
+        #video-feed {
+            width: 640px;
+            height: 480px;
+            margin-bottom: 10px;
+        }
+        #start-btn, #stop-btn {
+            padding: 10px;
+            font-size: 16px;
+            margin: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Facial Landmarks Detection</h1>
+    
+    <div id="video-container">
+        <img id="video-feed" src="{{ url_for('video_feed') }}" width="640" height="480">
+        <button id="start-btn">Start Camera</button>
+        <button id="stop-btn">Stop Camera</button>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const videoFeed = document.getElementById('video-feed');
+            const startBtn = document.getElementById('start-btn');
+            const stopBtn = document.getElementById('stop-btn');
+
+            startBtn.addEventListener('click', function () {
+                videoFeed.src = "/video_feed";  // Use the correct URL without {{ url_for('video_feed') }}
+            });
+
+            stopBtn.addEventListener('click', function () {
+                videoFeed.src = "";
+            });
+        });
+    </script>
+</body>
+</html>
