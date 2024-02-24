@@ -10,6 +10,7 @@ cap = cv2.VideoCapture(0)
 
 frame_count = 0
 
+
 while True:
     _, frame = cap.read()
     frame_count += 1
@@ -26,7 +27,7 @@ while True:
     for face in faces:
         landmarks = predictor(gray, face)
 
-        # Print facial landmarks with their corresponding names
+        #  Print facial landmarks with their corresponding names
         for landmark_index in range(0, 68):
             x = landmarks.part(landmark_index).x
             y = landmarks.part(landmark_index).y
